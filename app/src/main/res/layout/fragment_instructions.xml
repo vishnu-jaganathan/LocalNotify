@@ -7,9 +7,45 @@
     tools:context=".ui.instructions.InstructionsFragment">
 
 
-    <Button
-        android:id="@+id/toggle_dnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Do Not Disturb"/>
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="1.) Plug in the anchor apparatus at two corners of the space, your X,Y coordinates in this space will be measured from the left anchor as 0,0.\n" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="2.) Enter the distance between these two anchors in the settings page.\n" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="3.) Add constraints for Do Not Disturb areas as you wish specifying start and end coordinates of these rectangular
+regions and their names.\n" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="4.) Attach the UWB tag to the phone via the USB-C port and then press register device once you see the yellow and
+green lights flashing.\n" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static java.lang.Integer.parseInt;
 
 import android.app.AlertDialog;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,6 +51,25 @@ public class SettingsFragment extends Fragment {
 
         binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+
+        TextView anchorDistDisplay = (TextView) root.findViewById(R.id.anchor_dist_text);
+        anchorDistDisplay.setText("" + (MainActivity.anchorDist * 10));
+
+
+        Button onButton = (Button) root.findViewById(R.id.dnd_on);
+        onButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE);
+            }
+        });
+
+        Button offButton = (Button) root.findViewById(R.id.dnd_off);
+        offButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
+            }
+        });
 
         ArrayAdapter adapter = new ArrayAdapter<String>(root.getContext(),
                 R.layout.activity_listview, rules);

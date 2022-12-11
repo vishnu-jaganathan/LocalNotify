@@ -44,7 +44,7 @@ import com.felhr.usbserial.UsbSerialInterface;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static double anchorDist = 38;
+    public static double anchorDist = 38; // measures in 10s of centimeters
     public static double leftDist = 0;
     public static double rightDist = 0;
     private int key = 0;

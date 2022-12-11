@@ -33,14 +33,6 @@ public class InstructionsFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        Button button = (Button) root.findViewById(R.id.toggle_dnd);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE);
-//                MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
-            }
-        });
-
         return root;
     }
 
