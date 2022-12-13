@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:text="1.) Plug in the anchor apparatus at two corners of the space, your X,Y coordinates in this space will be measured from the left anchor as 0,0.\n" />
+            android:text="1.) Plug in the anchor apparatus at two corners of the space, your X,Y coordinates in this space will be measured from the left anchor as 0,0 in cm.\n" />
 
         <TextView
             android:id="@+id/textView3"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:text="2.) Enter the distance between these two anchors in the settings page.\n" />
+            android:text="2.) Enter the distance in cm between these two anchors in the settings page.\n" />
 
         <TextView
             android:id="@+id/textView4"

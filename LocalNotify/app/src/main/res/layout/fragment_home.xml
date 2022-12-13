@@ -15,21 +15,37 @@
 
         <Button
             android:id="@+id/register_tag_button"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Register Tag" />
 
         <TextView
             android:id="@+id/coords_display"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:textSize="40dp"
             android:text="X, Y" />
 
         <TextView
-            android:id="@+id/active_display"
-            android:layout_width="wrap_content"
+            android:id="@+id/zonelabels"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="..." />
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:text="Active Zones: " />
+
+        <TextView
+            android:id="@+id/active_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:text="" />
+
+
     </LinearLayout>
 
 

@@ -63,6 +63,8 @@
                 android:id="@+id/anchor_dist_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="Anchor Distance: " />
 
@@ -73,6 +75,15 @@
                 android:layout_weight="1"
                 android:layout_marginTop="1dp"
                 android:text="Add Rule" />
+
+            <TextView
+                android:id="@+id/ruleslabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:text="Rules: " />
 
             <ListView
                 android:id="@+id/mobile_list"

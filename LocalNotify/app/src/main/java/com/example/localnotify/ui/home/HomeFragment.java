@@ -13,7 +13,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,16 +27,23 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.localnotify.MainActivity;
 import com.example.localnotify.R;
 import com.example.localnotify.databinding.FragmentHomeBinding;
+import com.example.localnotify.ui.settings.RuleActivity;
 import com.example.localnotify.ui.settings.SettingsFragment;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 public class HomeFragment extends Fragment {
 
 
     private Thread coordsThread;
     private FragmentHomeBinding binding;
+
+    private Set<String> activeRules = new HashSet<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +64,7 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
         if (coordsThread == null) {
             coordsThread = new Thread() {
 
@@ -73,8 +84,8 @@ public class HomeFragment extends Fragment {
                                         x *= 10;
                                         y *= 10;
                                         TextView textView = (TextView) root.findViewById(R.id.coords_display);
-                                        textView.setText(x + ", " + y);
                                         TextView active = (TextView) root.findViewById(R.id.active_display);
+                                        textView.setText("X: " + x + " cm, Y: " + y + " cm");
                                         String toDisplay = "";
                                         boolean dndMode = false;
                                         for (int i = 0; i < SettingsFragment.rules.size(); i++) {
@@ -84,8 +95,15 @@ public class HomeFragment extends Fragment {
                                             int x_end = parseInt(SettingsFragment.rulesInfo.get(name + "_x_end"));
                                             int y_end = parseInt(SettingsFragment.rulesInfo.get(name + "_y_end"));
                                             if (x_start < x && x < x_end && y_start < y && y < y_end) {
-                                                toDisplay += name + ", ";
+                                                toDisplay += name + "\n";
                                                 dndMode = true;
+                                                if (!activeRules.contains(name)) {
+                                                    Toast.makeText(root.getContext(), "Entered " + name, Toast.LENGTH_SHORT).show();
+                                                    activeRules.add(name);
+                                                }
+                                            } else if (activeRules.contains(name)) {
+                                                Toast.makeText(root.getContext(), "Left " + name, Toast.LENGTH_SHORT).show();
+                                                activeRules.remove(name);
                                             }
                                         }
                                         if (dndMode) {

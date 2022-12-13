@@ -54,7 +54,7 @@ public class SettingsFragment extends Fragment {
 
 
         TextView anchorDistDisplay = (TextView) root.findViewById(R.id.anchor_dist_text);
-        anchorDistDisplay.setText("" + (MainActivity.anchorDist * 10));
+        anchorDistDisplay.setText("Anchor Distance: " + (MainActivity.anchorDist * 10) + " cm");
 
 
         Button onButton = (Button) root.findViewById(R.id.dnd_on);
@@ -99,8 +99,8 @@ public class SettingsFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         TextView view = (TextView) root.findViewById(R.id.anchor_dist_text);
                         int dist = parseInt(input.getText().toString());
-                        view.setText("Anchor Distance: " + dist);
                         MainActivity.anchorDist = dist / 10;
+                        view.setText("Anchor Distance: " + (MainActivity.anchorDist * 10) + " cm");
                         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MySharedPref", MODE_PRIVATE);
                         SharedPreferences.Editor myEdit = sharedPreferences.edit();
                         myEdit.putInt("anchorDist", dist / 10);
